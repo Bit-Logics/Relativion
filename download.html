@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relativion - Download</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Scarica Relativion, un'avventura spaziale che sfida le leggi della fisica e del tempo.">
+    <style>
+        .download-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.1);
+        }
+
+        .download-card h2 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .download-card p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .system-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .download-btn {
+            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container"></div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Relativion Logo">
+                RELATIVION
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <span class="nav-separator">|</span>
+                <a href="download.html" class="nav-link">Download</a>
+                <span class="nav-separator">|</span>
+                <a href="teorie.html" class="nav-link">Teorie della relatività</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Download</h1>
+                <p>Scarica Relativion per Windows e inizia la tua avventura spaziale.</p>
+
+                <div class="download-card">
+                    <p>Versione del gioco 1.0.0</p>
+                    <p>Dimensione del file: 2.3 GB</p>
+                    <a href="#" class="btn download-btn" onclick="alert('Download iniziato per Windows!')">Scarica per Windows</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="margin-bottom: 10px;">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.png" alt="Relativion Logo" style="height: 45px;">
+                        RELATIVION
+                    </a>
+                </div>
+                <p class="credits">Progetto realizzato a scopo scolastico da Dri Marco, con la collaborazione di Zanini Daniel.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/stars.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relativion - Teorie</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Le teorie della relatività utilizzate nel gioco Relativion.">
+    <style>
+        .theory-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            padding: 1.8rem;
+            text-align: left;
+            transition: transform 0.3s ease;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .theory-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .theory-card h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .theory-card h3 {
+            color: var(--accent-color);
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .theory-card p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .theory-card ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .theory-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .formula {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container"></div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Relativion Logo">
+                RELATIVION
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <span class="nav-separator">|</span>
+                <a href="download.html" class="nav-link">Download</a>
+                <span class="nav-separator">|</span>
+                <a href="teorie.html" class="nav-link">Teorie della relatività</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Teorie della relatività</h1>
+                <p>Le teorie fisiche alla base del gioco Relativion, che sfidano la nostra percezione di spazio e tempo.</p>
+
+                <div class="features">
+                    <div class="theory-card">
+                        <h2>Relatività ristretta</h2>
+                        <p>La teoria della relatività ristretta, formulata da Albert Einstein nel 1905, si basa su due postulati fondamentali:</p>
+                        <ul>
+                            <li>Le leggi della fisica sono le stesse in tutti i sistemi di riferimento inerziali.</li>
+                            <li>La velocità della luce nel vuoto è costante e indipendente dal moto della sorgente o dell'osservatore.</li>
+                        </ul>
+                        <p>Questi postulati portano a conseguenze sorprendenti, come la dilatazione del tempo e la contrazione delle lunghezze, che sono implementate nel gioco Relativion.</p>
+
+                        <h3>Dilatazione del tempo</h3>
+                        <p>Quando un oggetto si muove a velocità prossime a quella della luce, il tempo per quell'oggetto scorre più lentamente rispetto a un osservatore fermo. Questo è espresso dalla formula:</p>
+                        <div class="formula">
+                            Δt' = Δt / √(1 - v²/c²)
+                        </div>
+                        <p>Dove Δt' è il tempo misurato nel sistema in movimento, Δt è il tempo misurato nel sistema a riposo, v è la velocità relativa e c è la velocità della luce.</p>
+
+                        <h3>Contrazione delle lunghezze</h3>
+                        <p>Allo stesso modo, le lunghezze degli oggetti in movimento appaiono contratte nella direzione del moto:</p>
+                        <div class="formula">
+                            L' = L × √(1 - v²/c²)
+                        </div>
+                        <p>Dove L' è la lunghezza misurata nel sistema a riposo, L è la lunghezza propria dell'oggetto, v è la velocità relativa e c è la velocità della luce.</p>
+                    </div>
+
+                    <div class="theory-card">
+                        <h2>Applicazione nel gioco</h2>
+                        <p>In Relativion, queste teorie sono implementate in modo che il giocatore possa sperimentare gli effetti relativistici:</p>
+                        <ul>
+                            <li><strong>Velocità variabile:</strong> Il giocatore può controllare la velocità della navicella, sperimentando gli effetti relativistici a velocità elevate.</li>
+                            <li><strong>Distorsione visiva:</strong> Gli oggetti appaiono contratti nella direzione del moto quando la navicella accelera.</li>
+                            <li><strong>Effetto tempo:</strong> Il tempo scorre più lentamente per il giocatore a velocità elevate, dando più tempo per reagire agli ostacoli.</li>
+                            <li><strong>Effetto Doppler:</strong> I colori degli oggetti cambiano in base alla velocità relativa, spostando verso il blu quando ci si avvicina e verso il rosso quando ci si allontana.</li>
+                        </ul>
+                        <p>Questi effetti non solo rendono il gioco visivamente interessante, ma offrono anche un'opportunità educativa per comprendere i concetti della relatività in modo interattivo.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="margin-bottom: 10px;">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.png" alt="Relativion Logo" style="height: 45px;">
+                        RELATIVION
+                    </a>
+                </div>
+                <p class="credits">Progetto realizzato a scopo scolastico da Dri Marco, con la collaborazione di Zanini Daniel.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/stars.js"></script>
+</body>
+</html>
