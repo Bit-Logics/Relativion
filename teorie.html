@@ -87,41 +87,83 @@
                 <p>Le teorie fisiche alla base del gioco Relativion, che sfidano la nostra percezione di spazio e tempo.</p>
 
                 <div class="features">
-                    <div class="theory-card">
-                        <h2>Relatività ristretta</h2>
-                        <p>La teoria della relatività ristretta, formulata da Albert Einstein nel 1905, si basa su due postulati fondamentali:</p>
+                    <section id="relativity" class="theory-card">
+                        <h2>🧠 Teorie della Relatività</h2>
+                        <p><strong>Le fondamenta scientifiche che ispirano il mondo di <em>Relativion</em>, dove spazio e tempo si deformano al crescere della velocità.</strong></p>
+
+                        <h3>🔬 Relatività Ristretta</h3>
+                        <p>Formulata da <strong>Albert Einstein nel 1905</strong>, si basa su due principi:</p>
                         <ul>
-                            <li>Le leggi della fisica sono le stesse in tutti i sistemi di riferimento inerziali.</li>
-                            <li>La velocità della luce nel vuoto è costante e indipendente dal moto della sorgente o dell'osservatore.</li>
+                            <li>Le leggi della fisica sono identiche in tutti i sistemi inerziali.</li>
+                            <li>La velocità della luce nel vuoto è costante per ogni osservatore.</li>
                         </ul>
-                        <p>Questi postulati portano a conseguenze sorprendenti, come la dilatazione del tempo e la contrazione delle lunghezze, che sono implementate nel gioco Relativion.</p>
+                        <p>Da ciò derivano: <strong>dilatazione del tempo</strong> e <strong>contrazione delle lunghezze</strong>.</p>
 
-                        <h3>Dilatazione del tempo</h3>
-                        <p>Quando un oggetto si muove a velocità prossime a quella della luce, il tempo per quell'oggetto scorre più lentamente rispetto a un osservatore fermo. Questo è espresso dalla formula:</p>
+                        <h3>⏱️ Dilatazione del Tempo</h3>
+                        <p>Oggetti in rapido movimento sperimentano un tempo rallentato:</p>
                         <div class="formula">
-                            Δt' = Δt / √(1 - v²/c²)
+                            Δt′ = Δt / √(1 - v²/c²)
                         </div>
-                        <p>Dove Δt' è il tempo misurato nel sistema in movimento, Δt è il tempo misurato nel sistema a riposo, v è la velocità relativa e c è la velocità della luce.</p>
-
-                        <h3>Contrazione delle lunghezze</h3>
-                        <p>Allo stesso modo, le lunghezze degli oggetti in movimento appaiono contratte nella direzione del moto:</p>
-                        <div class="formula">
-                            L' = L × √(1 - v²/c²)
-                        </div>
-                        <p>Dove L' è la lunghezza misurata nel sistema a riposo, L è la lunghezza propria dell'oggetto, v è la velocità relativa e c è la velocità della luce.</p>
-                    </div>
-
-                    <div class="theory-card">
-                        <h2>Applicazione nel gioco</h2>
-                        <p>In Relativion, queste teorie sono implementate in modo che il giocatore possa sperimentare gli effetti relativistici:</p>
+                        <p><strong>Esempio:</strong></p>
                         <ul>
-                            <li><strong>Velocità variabile:</strong> Il giocatore può controllare la velocità della navicella, sperimentando gli effetti relativistici a velocità elevate.</li>
-                            <li><strong>Distorsione visiva:</strong> Gli oggetti appaiono contratti nella direzione del moto quando la navicella accelera.</li>
-                            <li><strong>Effetto tempo:</strong> Il tempo scorre più lentamente per il giocatore a velocità elevate, dando più tempo per reagire agli ostacoli.</li>
-                            <li><strong>Effetto Doppler:</strong> I colori degli oggetti cambiano in base alla velocità relativa, spostando verso il blu quando ci si avvicina e verso il rosso quando ci si allontana.</li>
+                            <li>v = 0 → Δt′ = Δt</li>
+                            <li>v ≈ c → Δt′ aumenta (tempo rallenta)</li>
                         </ul>
-                        <p>Questi effetti non solo rendono il gioco visivamente interessante, ma offrono anche un'opportunità educativa per comprendere i concetti della relatività in modo interattivo.</p>
-                    </div>
+
+                        <h3>📏 Contrazione delle Lunghezze</h3>
+                        <p>Gli oggetti appaiono accorciati nella direzione del moto:</p>
+                        <div class="formula">
+                            L′ = L × √(1 - v²/c²)
+                        </div>
+                        <p><strong>Esempio:</strong></p>
+                        <ul>
+                            <li>v = 0 → L′ = L</li>
+                            <li>v = 0.9c → L′ ≈ 0.44L</li>
+                        </ul>
+
+                        <h3>🎮 Applicazione in <em>Relativion</em></h3>
+                        <ul>
+                            <li><strong>Velocità variabile:</strong> il giocatore accelera fino a c.</li>
+                            <li><strong>Contrazione visiva:</strong> compressione sull'asse Z.</li>
+                            <li><strong>Effetto Doppler:</strong> spostamento blu/rosso dei colori.</li>
+                            <li><strong>Tempo dilatato:</strong> rallentamento del tempo a bordo.</li>
+                        </ul>
+
+                        <h3>⚛ Simulazione Tecnica</h3>
+                        <pre><code>// 1. Limita velocità a 0.999c
+float v = Mathf.Min(relativisticEffect.smoothedSpeed, relativisticEffect.speedOfLight * 0.999f);
+
+// 2. Calcolo v² / c²
+float vSquaredOverCSquared = (v * v) / (relativisticEffect.speedOfLight * relativisticEffect.speedOfLight);
+
+// 3. Fattore di Lorentz γ
+gamma = 1f / Mathf.Sqrt(1f - vSquaredOverCSquared);
+
+// 4. Contrazione = 1 / γ
+float contraction = 1f / gamma;
+
+// 5. Direzione e allineamento
+Vector3 toObj = (transform.position - relativisticEffect.playerMovement.transform.position).normalized;
+float alignment = Mathf.Abs(Vector3.Dot(playerDir, toObj));
+
+// 6. Nessuna contrazione se v è molto bassa
+if (v < 0.01f) {
+  transform.localScale = originalScale;
+  return;
+}
+
+// 7. Applica contrazione interpolata
+float contractedZ = Mathf.Max(
+  originalScale.z * Mathf.Lerp(1f, contraction, alignment),
+  originalScale.z * minContraction
+);
+
+// 8. Applica solo su asse Z
+transform.localScale = new Vector3(originalScale.x, originalScale.y, contractedZ);</code></pre>
+
+                        <h3>🎓 Un gioco che insegna</h3>
+                        <p><em>Relativion</em> permette di <strong>vivere</strong> i concetti della fisica relativistica attraverso il gameplay.</p>
+                    </section>
                 </div>
 
 
